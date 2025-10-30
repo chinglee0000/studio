@@ -1,0 +1,6 @@
+import { redirect } from 'next/navigation'
+
+export default function BusinessPage() {
+  redirect('/business/dashboard')
+  return null
+}
