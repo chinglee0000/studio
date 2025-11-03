@@ -132,7 +132,7 @@ export function TwinMatrixCard({ data }: { data: TwinMatrixData }) {
           </div>
           
           {/* Dimension Progress Bars - 手機 2x2，平板垂直，PC 垂直 */}
-          <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-y-3">
+          <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-y-4 md:gap-y-3">
             {Object.entries(data.dimensions).map(([key, dim]) => {
               const colorMap = {
                 physical: 'hsl(var(--matrix-physical))',
