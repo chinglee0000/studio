@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowRight, Info } from "lucide-react"
+import { ArrowRight, Info, Lock } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
@@ -32,16 +32,17 @@ function TwinMatrixGrid({ data }: { data: TwinMatrixData }) {
             </TooltipTrigger>
             <TooltipContent side="top" className="max-w-[220px] md:pointer-events-none">
               <div className="space-y-2">
-                {/* Trait 標題 */}
+                {/* Trait 標題 - Locked 顯示 16 進位 ID，Unlocked 顯示名稱 */}
                 <p className="font-semibold text-sm leading-snug break-words">
-                  {trait.name || `Trait ${trait.id}`}
+                  {trait.discovered ? (trait.name || `Trait ${trait.id}`) : trait.id}
                 </p>
                 
                 {/* Trait 分數和進度條 */}
                 <div>
                   {(() => {
-                    const score = parseInt(trait.id, 16)
-                    const percentage = Math.round((score / 255) * 100)
+                    // Locked trait 顯示 0，Unlocked 顯示實際分數
+                    const score = trait.discovered ? parseInt(trait.id, 16) : 0
+                    const percentage = trait.discovered ? Math.round((score / 255) * 100) : 0
                     return (
                       <>
                         <div className="flex items-center justify-between text-xs mb-1">
@@ -73,8 +74,9 @@ function TwinMatrixGrid({ data }: { data: TwinMatrixData }) {
                   </div>
                 )}
                 {!trait.discovered && (
-                  <div className="text-xs text-muted-foreground">
-                    🔒 Locked
+                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Lock className="h-3 w-3" />
+                    <span>Locked</span>
                   </div>
                 )}
               </div>
@@ -129,8 +131,8 @@ export function TwinMatrixCard({ data }: { data: TwinMatrixData }) {
             <TwinMatrixGrid data={data} />
           </div>
           
-          {/* Dimension Progress Bars */}
-          <div className="space-y-2.5 sm:space-y-3">
+          {/* Dimension Progress Bars - 手機 2x2，平板垂直，PC 垂直 */}
+          <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-y-3">
             {Object.entries(data.dimensions).map(([key, dim]) => {
               const colorMap = {
                 physical: 'hsl(var(--matrix-physical))',

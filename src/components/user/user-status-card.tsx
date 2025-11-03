@@ -36,23 +36,23 @@ export function UserStatusCard() {
           )}
         </div>
       </CardHeader>
-      <CardContent className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 sm:p-6">
-        <div className="flex items-center gap-2">
-          <DollarSign className="h-6 w-6 text-green-500" />
+      <CardContent className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-6">
+        <div className="flex items-center gap-3">
+          <DollarSign className="h-6 w-6 shrink-0 text-green-500" />
           <div>
             <p className="text-xs font-normal text-muted-foreground">Earned</p>
             <p className="text-lg font-semibold">${(user.earned || 0).toFixed(2)}</p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <DollarSign className="h-6 w-6 text-yellow-500" />
+        <div className="flex items-center gap-3">
+          <DollarSign className="h-6 w-6 shrink-0 text-yellow-500" />
           <div>
             <p className="text-xs font-normal text-muted-foreground">Potential</p>
             <p className="text-lg font-semibold">${(user.potential || 0).toFixed(2)}</p>
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <BarChart2 className="h-6 w-6 text-blue-500" />
+        <div className="flex items-center gap-3">
+          <BarChart2 className="h-6 w-6 shrink-0 text-blue-500" />
           <div>
             <p className="text-xs font-normal text-muted-foreground">Humanity Index</p>
             <p className="text-lg font-semibold">{user.humanityIndex || 0}%</p>
@@ -60,14 +60,14 @@ export function UserStatusCard() {
         </div>
         <Link
           href="/user/profile"
-          className="group flex items-center gap-2 rounded-lg bg-secondary/50 p-3 transition-colors hover:bg-muted"
+          className="group flex items-center gap-3 rounded-lg bg-secondary/50 p-3 transition-colors hover:bg-muted"
         >
-          <Eye className="h-6 w-6 text-purple-500" />
-          <div>
+          <Eye className="h-6 w-6 shrink-0 text-purple-500" />
+          <div className="flex-1">
             <p className="text-xs font-normal text-muted-foreground">Profile Views</p>
             <p className="text-lg font-semibold">{user.profileViews || 0}</p>
           </div>
-          <ArrowRight className="ml-auto h-5 w-5 text-muted-foreground transition-transform group-hover:translate-x-1" />
+          <ArrowRight className="h-5 w-5 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1" />
         </Link>
       </CardContent>
     </Card>

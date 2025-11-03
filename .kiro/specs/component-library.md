@@ -125,12 +125,23 @@ interface TwinMatrixData {
 - 8x8 trait grid visualization
 - Touch-optimized tooltips
 - Dimension progress bars
-- Journey progress indicator
+- Twin Matrix Completion indicator
 - Responsive grid layout (tablet has unique 2-column layout)
 
+**Trait Display:**
+- Locked traits: Show hex ID (e.g., "A3F2"), 0/255 (0%), Lock icon
+- Unlocked traits: Show name, actual score, unlock date
+
+**Dimension Progress Bars Layout:**
+- Mobile (< 640px): 2x2 grid
+- Tablet (640px - 768px): Vertical list (when side-by-side with matrix grid)
+- Desktop (≥ 768px): Vertical list
+
 **Interaction:**
-- Mobile/Tablet: Click to view trait details
-- Desktop: Hover to view trait details
+- Mobile/Tablet (< 768px): Click to view trait details
+- Desktop (≥ 768px): Hover to view trait details
+- Tooltips: `delayDuration={0}` for instant display
+- Max width: 220-240px for readable text
 
 ---
 
@@ -152,10 +163,20 @@ Uses `useUser()` context hook internally.
 
 **Features:**
 - User avatar and name
+- User level badge
 - Earned/Potential balance
 - Humanity Index
 - Profile views with link
 - Responsive grid layout
+
+**Layout:**
+- Mobile/Tablet (< 1024px): 2x2 grid
+- Desktop (≥ 1024px): 1x4 horizontal layout
+
+**Icons:**
+- All icons use `shrink-0` to prevent compression
+- Fixed size: 24x24px (h-6 w-6)
+- Gap: 12px (gap-3) between icon and text
 
 ---
 
@@ -520,8 +541,14 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 - Wrap trigger in `<button>` for touch devices
 - Add `touch-manipulation` class
 - Set max-width: `max-w-[220px]` to `max-w-[240px]`
-- Use `md:pointer-events-none` to prevent hover issues
+- Use `md:pointer-events-none` to prevent hover issues on desktop
 - Add `aria-label` for accessibility
+- Use `leading-snug` or `leading-relaxed` for readable text
+- Add `break-words` for long text
+
+**Responsive Behavior:**
+- Mobile/Tablet: Click to open/close
+- Desktop: Hover to show, move away to hide
 
 ---
 
