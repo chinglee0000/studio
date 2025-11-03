@@ -13,17 +13,17 @@ const buttonVariants = cva(
         // 原本的 variants (保持向後兼容)
         default: "bg-primary text-primary-foreground hover:bg-primary/90 rounded-full shadow-sm",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-full shadow-sm",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-full",
+        outline: "border border-input bg-background hover:bg-muted hover:text-foreground rounded-full",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full",
-        ghost: "hover:bg-accent hover:text-accent-foreground rounded-full",
+        ghost: "hover:bg-muted hover:text-foreground rounded-full",
         link: "text-primary underline-offset-4 hover:underline",
         
         // Material Design 3 別名 (指向相同的樣式)
         filled: "bg-primary text-primary-foreground hover:bg-primary/90 rounded-full shadow-sm",
         tonal: "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full",
-        outlined: "border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-full",
-        text: "hover:bg-accent hover:text-accent-foreground rounded-full",
-        elevated: "bg-background shadow-md hover:shadow-lg hover:bg-accent hover:text-accent-foreground rounded-full",
+        outlined: "border border-input bg-background hover:bg-muted hover:text-foreground rounded-full",
+        text: "hover:bg-muted hover:text-foreground rounded-full",
+        elevated: "bg-background shadow-md hover:shadow-lg hover:bg-muted hover:text-foreground rounded-full",
         fab: "bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:bg-primary/90 rounded-2xl",
       },
       size: {

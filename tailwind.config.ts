@@ -6,12 +6,22 @@ export default {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/lib/**/*.{js,ts,jsx,tsx}',
+  ],
+  safelist: [
+    // Quest icon colors
+    'bg-blue-100', 'bg-orange-100', 'bg-pink-100', 'bg-cyan-100', 'bg-green-100', 'bg-purple-100',
+    'dark:bg-blue-500/20', 'dark:bg-orange-500/20', 'dark:bg-pink-500/20', 
+    'dark:bg-cyan-500/20', 'dark:bg-green-500/20', 'dark:bg-purple-500/20',
+    'text-blue-600', 'text-orange-600', 'text-pink-600', 'text-cyan-600', 'text-green-600', 'text-purple-600',
+    'dark:text-blue-400', 'dark:text-orange-400', 'dark:text-pink-400', 
+    'dark:text-cyan-400', 'dark:text-green-400', 'dark:text-purple-400',
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        body: ['Montserrat', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
         headline: ['Montserrat', 'sans-serif'],
         display: ['Montserrat', 'sans-serif'],
         code: ['monospace'],

@@ -15,10 +15,14 @@ export type Quest = {
   description: string;
   questType: QuestType;
   reward: {
-    amount: number;
-    currency: 'USD';
+    twin3: number;
   };
   status: QuestStatus;
+  participants: {
+    current: number;
+    max: number;
+  };
+  deadline: Date;
   targetAudience: {
     ageRange: [number, number];
     location: string[];

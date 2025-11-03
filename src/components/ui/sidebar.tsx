@@ -205,6 +205,20 @@ function SidebarContent({
   )
 }
 
+function SidebarFooter({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
+  return (
+    <div className={cn("border-t p-2", className)}>
+      {children}
+    </div>
+  )
+}
+
 function SidebarMenu({
   children,
   className,
@@ -251,6 +265,7 @@ export {
   Sidebar,
   SidebarHeader,
   SidebarContent,
+  SidebarFooter,
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,

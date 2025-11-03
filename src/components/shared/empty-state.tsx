@@ -27,7 +27,7 @@ export function EmptyState({
         </div>
       )}
       <div className="mb-4 text-lg font-semibold">{title}</div>
-      <p className="mb-6 max-w-sm text-muted-foreground">{description}</p>
+      <p className="mb-6 max-w-sm text-muted-foreground font-normal">{description}</p>
       {(actionLabel && (actionHref || onAction)) && (
         <>
           {actionHref ? (

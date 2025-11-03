@@ -1,6 +1,5 @@
 import type {Metadata} from 'next';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: 'Twin3 - Real Human Experience Marketplace',
@@ -14,10 +13,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <link rel="icon" href="/logo_light.svg" type="image/svg+xml" />
+      </head>
       <body className="font-body antialiased" suppressHydrationWarning>
         {children}
-        <Toaster />
       </body>
     </html>
   );

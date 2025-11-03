@@ -1,12 +1,14 @@
 
 "use client"
 
+import React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
-import { BarChart3, ChevronDown, ClipboardList, CreditCard, LayoutDashboard } from "lucide-react"
+import { BarChart3, ClipboardList, CreditCard, LayoutDashboard } from "lucide-react"
+import { ThemeProvider } from "../components/providers"
 import { Twin3Logo } from "@/app/components/icons"
-import { ModeToggle, UserNav, BottomNav, BottomNavItem } from "@/components/shared"
+import { TopNav, BottomNav, BottomNavItem, ModeToggle, UserNav } from "@/components/shared"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -24,7 +26,7 @@ import {
   SidebarProvider,
   useSidebar
 } from "@/components/ui/sidebar"
-import { ThemeProvider } from "../components/providers"
+
 import { cn } from "@/lib/utils"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { Skeleton } from "@/components/ui/skeleton"
@@ -65,7 +67,7 @@ function BusinessLayoutContent({ children }: { children: React.ReactNode }) {
   if (isMobile) {
     return (
       <div className="flex min-h-screen w-full flex-col bg-muted/40">
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
+        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4">
           <div className="flex-1">
              <Link href="/business/dashboard" className="flex items-center gap-2 font-semibold">
               <img src={logoSrc} alt="Twin3" className="h-6 w-6" />
@@ -96,7 +98,7 @@ function BusinessLayoutContent({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-muted/40">
+    <div className="flex min-h-screen w-full flex-col bg-background">
       <Sidebar>
         <SidebarHeader>
           <img src={logoSrc} alt="Twin3" className="h-6 w-6" />
@@ -121,27 +123,8 @@ function BusinessLayoutContent({ children }: { children: React.ReactNode }) {
         </SidebarContent>
       </Sidebar>
 
-      <div className={cn("flex flex-col sm:gap-4 sm:py-4 transition-all min-h-screen", isCollapsed ? "sm:pl-14" : "sm:pl-64")}>
-        <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
-          <div className="flex-1">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outlined" className="gap-1">
-                  <span className="font-semibold">Business Mode</span>
-                  <ChevronDown />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start">
-                <DropdownMenuItem disabled>Switch to User Mode</DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <ModeToggle />
-            <UserNav />
-          </div>
-        </header>
+      <div className={cn("flex flex-col transition-all min-h-screen", isCollapsed ? "sm:pl-14" : "sm:pl-64")}>
+        <TopNav showNotifications={true} />
         <main className="flex-1 flex flex-col p-4 sm:px-6 sm:py-0">
           <div className="mx-auto w-full sm:max-w-2xl flex-1 flex flex-col">
             {children}
@@ -152,21 +135,20 @@ function BusinessLayoutContent({ children }: { children: React.ReactNode }) {
   )
 }
 
+import { UserProvider } from "@/contexts/user-context"
+
 export default function BusinessLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-    >
-      <SidebarProvider>
-        <BusinessLayoutContent>{children}</BusinessLayoutContent>
-      </SidebarProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <UserProvider mode="business">
+        <SidebarProvider>
+          <BusinessLayoutContent>{children}</BusinessLayoutContent>
+        </SidebarProvider>
+      </UserProvider>
     </ThemeProvider>
   )
 }

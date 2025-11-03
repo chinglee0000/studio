@@ -1,20 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 600;
-}
-
 @layer base {
   :root {
+    --font-body: "Inter", sans-serif;
+    --font-headline: "Montserrat", sans-serif;
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
@@ -40,11 +33,22 @@ h1, h2, h3, h4, h5, h6 {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    
+    /* Twin Matrix Dimension Colors */
+    --matrix-physical: 211 85% 50%;
+    --matrix-physical-light: 211 85% 95%;
+    --matrix-social: 142 71% 45%;
+    --matrix-social-light: 142 71% 95%;
+    --matrix-digital: 271 76% 53%;
+    --matrix-digital-light: 271 76% 95%;
+    --matrix-spiritual: 27 87% 55%;
+    --matrix-spiritual-light: 27 87% 95%;
+    --matrix-undiscovered: 220 9% 88%;
   }
   .dark {
-    --background: 220 13% 11%;
+    --background: 220 13% 11%; /* Slightly off-black for depth */
     --foreground: 210 20% 98%;
-    --card: 220 13% 14%;
+    --card: 220 13% 14%; /* A bit lighter than background */
     --card-foreground: 210 20% 98%;
     --popover: 220 13% 11%;
     --popover-foreground: 210 20% 98%;
@@ -66,6 +70,17 @@ h1, h2, h3, h4, h5, h6 {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    
+    /* Twin Matrix Dimension Colors - Dark Mode */
+    --matrix-physical: 211 85% 60%;
+    --matrix-physical-light: 211 85% 20%;
+    --matrix-social: 142 71% 55%;
+    --matrix-social-light: 142 71% 20%;
+    --matrix-digital: 271 76% 63%;
+    --matrix-digital-light: 271 76% 20%;
+    --matrix-spiritual: 27 87% 65%;
+    --matrix-spiritual-light: 27 87% 20%;
+    --matrix-undiscovered: 220 9% 56%;
   }
 }
 
@@ -75,6 +90,10 @@ h1, h2, h3, h4, h5, h6 {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headline);
   }
 }
 
@@ -91,4 +110,45 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: normal;
   direction: ltr;
   -webkit-font-smoothing: antialiased;
+}
+
+[data-nextjs-toast-wrapper] {
+  display: none !important;
+}
+
+/* Custom Scrollbar Styles */
+@layer utilities {
+  /* Webkit browsers (Chrome, Safari, Edge) */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border) / 0.6);
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+
+  .scrollbar-thin:hover::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--border) / 0.8);
+  }
+
+  /* Firefox */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border) / 0.6) transparent;
+  }
+
+  .scrollbar-thin:hover {
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
 }
