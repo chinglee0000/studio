@@ -58,59 +58,59 @@ This implementation plan breaks down the design system standardization into disc
   - Migrate existing card variants from `src/components/ui/card.tsx`
   - _Requirements: 5.1, 5.2_
 
-- [ ] 3.3 Create badge variants
+- [x] 3.3 Create badge variants
   - Implement `src/lib/design-system/variants/badge.ts` using CVA with semantic color variants
   - _Requirements: 5.1, 5.2_
 
-- [ ] 3.4 Create interactive state variants
+- [x] 3.4 Create interactive state variants
   - Implement `src/lib/design-system/variants/interactive.ts` with hover, active, focus, and disabled state variants
   - _Requirements: 6.1, 6.2, 6.3_
 
-- [ ] 3.5 Create variants index file
+- [x] 3.5 Create variants index file
   - Implement `src/lib/design-system/variants/index.ts` to re-export all variant modules
   - _Requirements: 5.4_
 
-- [ ] 4. Implement utility functions
-- [ ] 4.1 Create class name utility
+- [x] 4. Implement utility functions
+- [x] 4.1 Create class name utility
   - Implement `src/lib/design-system/utils/cn.ts` with enhanced cn() function
   - _Requirements: 9.1, 9.3_
 
-- [ ] 4.2 Create responsive utilities
+- [x] 4.2 Create responsive utilities
   - Implement `src/lib/design-system/utils/responsive.ts` with helpers for responsive sizing and breakpoints
   - _Requirements: 9.2_
 
-- [ ] 4.3 Create theme utilities
+- [x] 4.3 Create theme utilities
   - Implement `src/lib/design-system/utils/theme.ts` with helpers for theme-aware colors and dark mode
   - _Requirements: 9.2_
 
-- [ ] 4.4 Create variant composition utilities
+- [x] 4.4 Create variant composition utilities
   - Add helper functions in `src/lib/design-system/utils/variants.ts` for composing variant classes
   - _Requirements: 9.1, 9.2_
 
-- [ ] 4.5 Create utils index file
+- [x] 4.5 Create utils index file
   - Implement `src/lib/design-system/utils/index.ts` to re-export all utility modules
   - _Requirements: 9.3, 9.5_
 
-- [ ] 5. Implement preset system
-- [ ] 5.1 Create typography presets
+- [x] 5. Implement preset system
+- [x] 5.1 Create typography presets
   - Implement `src/lib/design-system/presets/typography.ts` with ready-to-use heading, body, and special text combinations
   - Create `getTypographyClasses()` utility function
   - _Requirements: 3.2, 3.3, 3.5_
 
-- [ ] 5.2 Create layout presets
+- [x] 5.2 Create layout presets
   - Implement `src/lib/design-system/presets/layout.ts` with common layout patterns for cards, lists, and sections
   - _Requirements: 4.3_
 
-- [ ] 5.3 Create quest-specific presets
+- [x] 5.3 Create quest-specific presets
   - Implement `src/lib/design-system/presets/quest.ts` by migrating quest type designs and creating quest component presets
   - Migrate `QUEST_TYPE_DESIGN` from `src/lib/constants/quest-design-system.ts`
   - _Requirements: 1.1, 1.4_
 
-- [ ] 5.4 Create presets index file
+- [x] 5.4 Create presets index file
   - Implement `src/lib/design-system/presets/index.ts` to re-export all preset modules
   - _Requirements: 1.3_
 
-- [ ] 6. Create main design system export
+- [x] 6. Create main design system export
   - Implement `src/lib/design-system/index.ts` to export all tokens, variants, utils, and presets
   - Organize exports by category with clear naming
   - _Requirements: 1.3, 1.5_
