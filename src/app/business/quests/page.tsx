@@ -46,7 +46,7 @@ export default function QuestsPage() {
   const completedQuests = mockQuests.filter((q) => q.status === "completed")
 
   return (
-    <div className="grid flex-1 items-start gap-4">
+    <div className="space-y-6">
       <PageHeader
         title="New Quests"
         description="Manage and monitor your created quests"

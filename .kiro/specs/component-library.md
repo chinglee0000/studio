@@ -320,8 +320,42 @@ interface QuestTypeIconProps {
 
 **Sizes:**
 - `sm`: 32px (h-8 w-8)
-- `md`: 40px (h-10 w-10)
-- `lg`: 48px (h-12 w-12)
+- `md`: 48px (h-12 w-12)
+- `lg`: 64px (h-16 w-16)
+
+---
+
+### Quest Type Card
+Card component for displaying quest types in a grid layout.
+
+**Structure:**
+```tsx
+<Card className="rounded-lg text-card-foreground border bg-card shadow-sm overflow-hidden flex h-full flex-col transition-all hover:shadow-lg hover:-translate-y-1">
+  <div className="flex flex-col p-6 space-y-4">
+    <QuestTypeIcon type={questType} size="md" />
+    <div className="space-y-2">
+      <CardTitle className="text-base font-semibold">{questType}</CardTitle>
+      <CardDescription className="text-xs font-normal">{description}</CardDescription>
+    </div>
+  </div>
+</Card>
+```
+
+**Layout Guidelines:**
+- Use single wrapper `div` with `p-6 space-y-4` instead of separate `CardHeader` and `CardContent`
+- Icon and text content spacing: `space-y-4` (1rem)
+- Title and description spacing: `space-y-2` (0.5rem)
+- Grid layout: `grid grid-cols-2 gap-4 md:grid-cols-3`
+
+**Hover Effects:**
+- Shadow: `hover:shadow-lg`
+- Transform: `hover:-translate-y-1`
+- Transition: `transition-all`
+
+**Best Practices:**
+- Keep all content in one wrapper for easier spacing control
+- Don't use separate `CardHeader` and `CardContent` for quest type cards
+- Maintain consistent spacing between icon and text across all quest cards
 
 ---
 

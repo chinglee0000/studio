@@ -126,7 +126,7 @@ function BusinessLayoutContent({ children }: { children: React.ReactNode }) {
       <div className={cn("flex flex-col transition-all min-h-screen", isCollapsed ? "sm:pl-14" : "sm:pl-64")}>
         <TopNav showNotifications={true} />
         <main className="flex-1 flex flex-col p-4 sm:px-6 sm:py-0">
-          <div className="mx-auto w-full sm:max-w-2xl flex-1 flex flex-col">
+          <div className="mx-auto w-full sm:max-w-4xl flex-1 flex flex-col">
             {children}
           </div>
         </main>

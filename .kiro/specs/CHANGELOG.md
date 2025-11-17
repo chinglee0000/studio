@@ -2,6 +2,30 @@
 
 All notable changes to the Twin3 platform design and components.
 
+## [2024-01-05] - Layout Consistency & Quest Card Structure
+
+### Changed
+- **Business Mode Layout**:
+  - Updated max-width from `sm:max-w-2xl` to `sm:max-w-4xl` to match user mode
+  - Changed page spacing from `gap-4` to `space-y-6` for consistency
+  - All business mode pages now have identical width and spacing as user mode
+
+- **Quest Type Cards**:
+  - Restructured card layout to use single wrapper instead of separate CardHeader/CardContent
+  - New structure: `<div className="flex flex-col p-6 space-y-4">` containing icon and text
+  - Icon to title spacing: `space-y-4` (1rem)
+  - Title to description spacing: `space-y-2` (0.5rem)
+  - Improved spacing control and maintainability
+
+- **TwinMatrixCard**:
+  - Increased dimension progress bar spacing on tablet from `gap-y-2` to `gap-y-4`
+  - Better visual separation between progress bars
+
+### Fixed
+- Inconsistent content width between user and business modes
+- Quest card spacing issues caused by CardHeader/CardContent structure
+- Progress bar spacing too tight on tablet view
+
 ## [2024-01-04] - Mobile & Responsive Improvements
 
 ### Added

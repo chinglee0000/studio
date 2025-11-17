@@ -87,11 +87,24 @@ src/
 
 ## 📚 Documentation
 
-Comprehensive documentation is available in the `docs/` directory:
+### Active Documentation
+
+Primary documentation is in `.kiro/specs/`:
+
+- [Component Library](./.kiro/specs/component-library.md) - All reusable components
+- [Design Tokens](./.kiro/specs/design-tokens.md) - Colors, spacing, typography
+- [Mobile Design Guidelines](./.kiro/specs/mobile-design-guidelines.md) - Responsive design patterns
+- [Accessibility Guidelines](./.kiro/specs/accessibility-guidelines.md) - A11y best practices
+- [CHANGELOG](./.kiro/specs/CHANGELOG.md) - Design and component changes
+
+### Reference Documentation
+
+Additional reference materials in `docs/`:
 
 - [Design System](./docs/design-system/) - Material Design 3 guidelines
 - [Architecture](./docs/architecture/) - Project architecture and patterns
-- [Migration Guides](./docs/migration/) - Migration and upgrade guides
+- [Assets](./docs/assets/) - Design assets and PDFs
+- [Archive](./docs/archive/) - Historical documentation
 
 ## 🎨 Design System
 

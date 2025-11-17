@@ -37,13 +37,13 @@ export default function CreateNewQuestPage() {
               key={questType}
             >
               <Card className="rounded-lg text-card-foreground border bg-card shadow-sm overflow-hidden flex h-full flex-col transition-all hover:shadow-lg hover:-translate-y-1">
-                <CardHeader>
-                  <QuestTypeIcon type={questType} size="md" className="mb-4" />
-                  <CardTitle className="text-base font-semibold">{questType}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <CardDescription className="text-xs font-normal">{description}</CardDescription>
-                </CardContent>
+                <div className="flex flex-col p-6 space-y-4">
+                  <QuestTypeIcon type={questType} size="md" />
+                  <div className="space-y-2">
+                    <CardTitle className="text-base font-semibold">{questType}</CardTitle>
+                    <CardDescription className="text-xs font-normal">{description}</CardDescription>
+                  </div>
+                </div>
               </Card>
             </Link>
           )
